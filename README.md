@@ -1,20 +1,20 @@
 # ethereum-smart-contracts
 Ethereum-Smart-contracts using Solidity is a traning exercise in order to understand basic of smart contract and their working in distributed environment.
-You must have Metamask extension installed in your chrome browser. Also, use Geth for creating a private chain.
+You must have Metamask extension installed in your chrome browser. Also, use Geth for creating a private chain. Following Readme instrunctions are not well written might have errors in spellings etc..
+
 Setting up Dev ENV on MAC:
 
 
-  1: install xcode
-  2: xcode-select --install
-  3: install Homebre
-  $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  4: install nodejs (follow instrunctions on google to install nom)
+1: install xcode
+2: xcode-select --install
+3: install Homebre
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+4: install nodejs (follow instrunctions on google to install npm)
 
 5: GETH - Go-Ethrem
-
-   5.1: Add ethereum to Source list using following command
-        -> $ brew tap ethereum/ethereum     Than
-  5.2-> $ brew install ethereum
+5.1: Add ethereum to Source list using following command
+-> $ brew tap ethereum/ethereum     Than
+5.2-> $ brew install ethereum
 
 6: Install Test RPC (It simulate ethrem node it’s not a real node, u can consider it as test node and install test smartcontract) Every time you restart test RPC you need to redeploy smart contracts.
 -> $ npm install -g ethereumjs-testrpc
@@ -30,13 +30,7 @@ Download Atom here  https://atom.io/
 9: install language package for atom to edit ethereum smart contracts (apm == atom package manager)
 
 → apm install language-ethereum
-
-
-	
-
 That’s all about dev env setup
-
-
 =======
 
 Setting up a private ethereum node using GETH:
