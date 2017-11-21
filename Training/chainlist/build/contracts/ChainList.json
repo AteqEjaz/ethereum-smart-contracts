@@ -2,24 +2,38 @@
   "contract_name": "ChainList",
   "abi": [
     {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "buyArticle",
+      "outputs": [],
+      "payable": true,
+      "type": "function"
+    },
+    {
       "constant": true,
       "inputs": [],
-      "name": "getArticle",
+      "name": "getArticlesForSale",
       "outputs": [
         {
-          "name": "_seller",
-          "type": "address"
-        },
+          "name": "",
+          "type": "uint256[]"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getNumberOfArticles",
+      "outputs": [
         {
-          "name": "_name",
-          "type": "string"
-        },
-        {
-          "name": "_description",
-          "type": "string"
-        },
-        {
-          "name": "_price",
+          "name": "",
           "type": "uint256"
         }
       ],
@@ -46,9 +60,106 @@
       "outputs": [],
       "payable": false,
       "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "articles",
+      "outputs": [
+        {
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "name": "seller",
+          "type": "address"
+        },
+        {
+          "name": "buyer",
+          "type": "address"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_id",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "name": "_seller",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "_price",
+          "type": "uint256"
+        }
+      ],
+      "name": "sellArticleEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_id",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "name": "_seller",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_buyer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "_price",
+          "type": "uint256"
+        }
+      ],
+      "name": "buyArticleEvent",
+      "type": "event"
     }
   ],
-  "unlinked_binary": "0x6060604052341561000f57600080fd5b5b6104c48061001f6000396000f300606060405263ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663c37218a68114610048578063d260951514610163575b600080fd5b341561005357600080fd5b61005b6101fa565b60405173ffffffffffffffffffffffffffffffffffffffff8516815260608101829052608060208201818152906040830190830186818151815260200191508051906020019080838360005b838110156100c05780820151818401525b6020016100a7565b50505050905090810190601f1680156100ed5780820380516001836020036101000a031916815260200191505b50838103825285818151815260200191508051906020019080838360005b838110156101245780820151818401525b60200161010b565b50505050905090810190601f1680156101515780820380516001836020036101000a031916815260200191505b50965050505050505060405180910390f35b341561016e57600080fd5b6101f860046024813581810190830135806020601f8201819004810201604051908101604052818152929190602084018383808284378201915050505050509190803590602001908201803590602001908080601f016020809104026020016040519081016040528181529291906020840183838082843750949650509335935061037e92505050565b005b60006102046103e6565b61020c6103e6565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1660016002600354828054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102cc5780601f106102a1576101008083540402835291602001916102cc565b820191906000526020600020905b8154815290600101906020018083116102af57829003601f168201915b50505050509250818054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103685780601f1061033d57610100808354040283529160200191610368565b820191906000526020600020905b81548152906001019060200180831161034b57829003601f168201915b5050505050915093509350935093505b90919293565b6000805473ffffffffffffffffffffffffffffffffffffffff19163373ffffffffffffffffffffffffffffffffffffffff1617905560018380516103c69291602001906103f8565b5060028280516103da9291602001906103f8565b5060038190555b505050565b60206040519081016040526000815290565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061043957805160ff1916838001178555610466565b82800160010185558215610466579182015b8281111561046657825182559160200191906001019061044b565b5b50610473929150610477565b5090565b61049591905b80821115610473576000815560010161047d565b5090565b905600a165627a7a723058205322aa7225db9f58b53a0ef1e44d2c8ee57f01eff52e5e9fa0911a10ecea11810029",
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b5b6108c18061001f6000396000f300606060405263ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631cc4baa881146100695780637f6be3da1461007657806389da85d3146100dd578063d260951514610102578063edcfafe614610199575b600080fd5b6100746004356102da565b005b341561008157600080fd5b610089610499565b60405160208082528190810183818151815260200191508051906020019060200280838360005b838110156100c95780820151818401525b6020016100b0565b505050509050019250505060405180910390f35b34156100e857600080fd5b6100f06105e8565b60405190815260200160405180910390f35b341561010d57600080fd5b61007460046024813581810190830135806020601f8201819004810201604051908101604052818152929190602084018383808284378201915050505050509190803590602001908201803590602001908080601f01602080910402602001604051908101604052818152929190602084018383808284375094965050933593506105ef92505050565b005b34156101a457600080fd5b6101af6004356107a5565b604051868152600160a060020a0380871660208301528516604082015260a0810182905260c06060820181815285546002600019610100600184161502019091160491830182905290608083019060e0840190879080156102515780601f1061022657610100808354040283529160200191610251565b820191906000526020600020905b81548152906001019060200180831161023457829003601f168201915b50508381038252855460026000196101006001841615020190911604808252602090910190869080156102c55780601f1061029a576101008083540402835291602001916102c5565b820191906000526020600020905b8154815290600101906020018083116102a857829003601f168201915b50509850505050505050505060405180910390f35b6000806001541115156102ec57600080fd5b6000821180156102fe57506001548211155b151561030957600080fd5b5060008181526020819052604090206002810154600160a060020a03161561033057600080fd5b600181015433600160a060020a039081169116141561034e57600080fd5b6005810154341461035e57600080fd5b600281018054600160a060020a0333811673ffffffffffffffffffffffffffffffffffffffff19909216919091179091556001820154163480156108fc0290604051600060405180830381858888f1935050505015156103bd57600080fd5b600281015460018201546005830154600160a060020a03928316929091169084907f1022115f3a730bbc8daef9a08e80544240a1578ecba51270e55ab8e72d626e7290600386019060405160208101829052604080825283546002600019610100600184161502019091160490820181905281906060820190859080156104855780601f1061045a57610100808354040283529160200191610485565b820191906000526020600020905b81548152906001019060200180831161046857829003601f168201915b5050935050505060405180910390a45b5050565b6104a16107e3565b6104a96107e3565b6000806104b46107e3565b6000600154600014156104e95760006040518059106104d05750595b908082528060200260200182016040525b5095506105e0565b6001546040518059106104f95750595b908082528060200260200182016040525b50945060009350600192505b600154831161057857600083815260208190526040902060020154600160a060020a0316151561056c5760008381526020819052604090205485858151811061055b57fe5b602090810290910101526001909301925b5b600190920191610516565b836040518059106105865750595b908082528060200260200182016040525b509150600090505b838110156105dc578481815181106105b357fe5b906020019060200201518282815181106105c957fe5b602090810290910101525b60010161059f565b8195505b505050505090565b6001545b90565b600180548101905560c06040519081016040908152600154808352600160a060020a0333166020808501919091526000838501819052606085018890526080850187905260a085018690529182528190522081518155602082015160018201805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055604082015160028201805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03929092169190911790556060820151816003019080516106c79291602001906107f5565b506080820151816004019080516106e29291602001906107f5565b5060a0820151816005015590505033600160a060020a03166001547fe6dcabaf37bca305551877dc9bc2cb6019fbb7859c0f74c037077d948fb17c5685846040518080602001838152602001828103825284818151815260200191508051906020019080838360005b838110156107645780820151818401525b60200161074b565b50505050905090810190601f1680156107915780820380516001836020036101000a031916815260200191505b50935050505060405180910390a35b505050565b600060208190529081526040902080546001820154600283015460058401549293600160a060020a0392831693929091169160038201916004019086565b60206040519081016040526000815290565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061083657805160ff1916838001178555610863565b82800160010185558215610863579182015b82811115610863578251825591602001919060010190610848565b5b50610870929150610874565b5090565b6105ec91905b80821115610870576000815560010161087a565b5090565b905600a165627a7a723058203da0144d3a25215ab78104f0cff2121c482e06e3e06a7e4e5c3802c27d79ad640029",
   "networks": {
     "1510057739494": {
       "events": {},
@@ -61,8 +172,377 @@
       "links": {},
       "address": "0x95ca82d1e2fadd0f33618b3547a8462599edb135",
       "updated_at": 1510071236843
+    },
+    "1510343297379": {
+      "events": {},
+      "links": {},
+      "address": "0x5e296ae6ac01fb3021934b1bc0e35e40fd41120a",
+      "updated_at": 1510350103108
+    },
+    "1510350764134": {
+      "events": {},
+      "links": {},
+      "address": "0x9ac4cd8e0bd097b15921f36edd81192c4d53eb05",
+      "updated_at": 1510351238988
+    },
+    "1510660273198": {
+      "events": {},
+      "links": {},
+      "address": "0x7650f2e21251615ed390b6a183190fe2f5ad2409",
+      "updated_at": 1510660441731
+    },
+    "1510661002224": {
+      "events": {
+        "0x229ecd5f3a912d97d6c520c3ce09b3c5df244541e239b7a3c24d18c06505bcb9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_seller",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "_price",
+              "type": "uint256"
+            }
+          ],
+          "name": "sellArticleEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xe7194e2016d5454d5791d94d8a6aff6c1ead6457",
+      "updated_at": 1510663127752
+    },
+    "1510665809398": {
+      "events": {
+        "0x229ecd5f3a912d97d6c520c3ce09b3c5df244541e239b7a3c24d18c06505bcb9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_seller",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "_price",
+              "type": "uint256"
+            }
+          ],
+          "name": "sellArticleEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xfb0a4e5bbc481ae30826742c325ac26442cf0253",
+      "updated_at": 1510665937945
+    },
+    "1510675542036": {
+      "events": {
+        "0x229ecd5f3a912d97d6c520c3ce09b3c5df244541e239b7a3c24d18c06505bcb9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_seller",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "_price",
+              "type": "uint256"
+            }
+          ],
+          "name": "sellArticleEvent",
+          "type": "event"
+        },
+        "0x38beb681bc0237671d2b0a9516f45454a940d09dbb12bdf89fb60ece0dc23178": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_seller",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_buyer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "_price",
+              "type": "uint256"
+            }
+          ],
+          "name": "buyArticleEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x0689e51830902c2a87a7d3cb8fe6acf85c470ca1",
+      "updated_at": 1510679879323
+    },
+    "1511290626035": {
+      "events": {
+        "0x229ecd5f3a912d97d6c520c3ce09b3c5df244541e239b7a3c24d18c06505bcb9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_seller",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "_price",
+              "type": "uint256"
+            }
+          ],
+          "name": "sellArticleEvent",
+          "type": "event"
+        },
+        "0x38beb681bc0237671d2b0a9516f45454a940d09dbb12bdf89fb60ece0dc23178": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_seller",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_buyer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "_price",
+              "type": "uint256"
+            }
+          ],
+          "name": "buyArticleEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xe7194e2016d5454d5791d94d8a6aff6c1ead6457",
+      "updated_at": 1511290710892
+    },
+    "1511299097482": {
+      "events": {
+        "0x229ecd5f3a912d97d6c520c3ce09b3c5df244541e239b7a3c24d18c06505bcb9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_seller",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "_price",
+              "type": "uint256"
+            }
+          ],
+          "name": "sellArticleEvent",
+          "type": "event"
+        },
+        "0x38beb681bc0237671d2b0a9516f45454a940d09dbb12bdf89fb60ece0dc23178": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_seller",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_buyer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "_price",
+              "type": "uint256"
+            }
+          ],
+          "name": "buyArticleEvent",
+          "type": "event"
+        },
+        "0xe6dcabaf37bca305551877dc9bc2cb6019fbb7859c0f74c037077d948fb17c56": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_id",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_seller",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "_price",
+              "type": "uint256"
+            }
+          ],
+          "name": "sellArticleEvent",
+          "type": "event"
+        },
+        "0x1022115f3a730bbc8daef9a08e80544240a1578ecba51270e55ab8e72d626e72": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_id",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_seller",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_buyer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "_price",
+              "type": "uint256"
+            }
+          ],
+          "name": "buyArticleEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xb4755009751f73254d7addc4f7422956989e926f",
+      "updated_at": 1511303095104
+    },
+    "1511303114092": {
+      "events": {
+        "0xe6dcabaf37bca305551877dc9bc2cb6019fbb7859c0f74c037077d948fb17c56": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_id",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_seller",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "_price",
+              "type": "uint256"
+            }
+          ],
+          "name": "sellArticleEvent",
+          "type": "event"
+        },
+        "0x1022115f3a730bbc8daef9a08e80544240a1578ecba51270e55ab8e72d626e72": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_id",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "name": "_seller",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "_buyer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "_price",
+              "type": "uint256"
+            }
+          ],
+          "name": "buyArticleEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xe7194e2016d5454d5791d94d8a6aff6c1ead6457",
+      "updated_at": 1511303169900
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1510071236843
+  "updated_at": 1511303169900
 }
